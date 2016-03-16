@@ -28,10 +28,10 @@ public List<String> getIps(){
  
                 if( adress.length() < 16){          //On s'assure ainsi que l'adresse IP est bien IPv4
                     if(adress.startsWith("127")){  //Ce n'est pas l'adresse IP Local' 
-                        //System.out.println(ia.getHostAddress());
+                        
                     }
                     else if(adress.indexOf(":") > 0){
-                        //System.out.println(ia.getHostAddress()); // les ":" indique que c'est une IPv6"
+                        
                     }
                  
                     else

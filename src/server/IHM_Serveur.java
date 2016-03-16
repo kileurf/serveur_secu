@@ -38,6 +38,7 @@ public class IHM_Serveur extends JFrame {
         this.add(arreter,BorderLayout.SOUTH);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(300, 100);
+        this.setResizable(false);
         this.setVisible(true);
     }
     
