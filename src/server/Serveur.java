@@ -13,15 +13,25 @@ import java.net.Socket;
 
 public class Serveur
 {
-    public static void main(String...args) throws IOException 
+    public static void recoit() throws IOException 
     { 
-        Socket sock = new ServerSocket(9001).accept();
+        Socket sock =null;
+        try{
+        sock =new ServerSocket(8080).accept();
         
         Commun.transfert(
                 sock.getInputStream(),
                 new FileOutputStream("D:\\test2.jpg"),
                 true);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }finally{
+            try{
+            sock.close();
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            } 
+        }
         
-        sock.close(); 
     } 
 }

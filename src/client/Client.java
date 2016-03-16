@@ -7,15 +7,26 @@ import java.net.Socket;
 
 public class Client
 {
-    public static void main(String...args) throws IOException 
+    public static void envoie(String path) throws IOException 
     { 
-        Socket sock = new Socket(InetAddress.getLocalHost(),9001);
+        
+        Socket sock = null;
+        try{
+        sock=new Socket(InetAddress.getLocalHost(),9001);
     
         Commun.transfert(
-                new FileInputStream("D:\\test.jpg"),
+                new FileInputStream(path),
                 sock.getOutputStream(),
                 true);
-        
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        finally{
+            try{
         sock.close();
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+        }
     } 
 }
